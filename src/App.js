@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import CarritoCompras from './CarritoCompras/carrito';
 import './App.css';
+import Impresos from './Productos/productos';
+import { useState } from 'react';
+import NavBar from './NavBar/NavBar';
+
 
 function App() {
+  const [items, useItems] = useState ([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div> 
+    <NavBar></NavBar>
+    <Impresos cambio={useItems}></Impresos>
+    <CarritoCompras ProductoSeleccionado={items}></CarritoCompras>
     </div>
   );
 }
